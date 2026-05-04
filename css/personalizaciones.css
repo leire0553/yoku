@@ -1,0 +1,106 @@
+.container-personalizar {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+/* Encabezado */
+.hero-personalizar h1 {
+    color: #2b93cc;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.intro-text, .final-text {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Banner con botón encima */
+.banner-interactivo {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.banner-interactivo img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.btn-personaliza-aqui {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2b93cc;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.btn-personaliza-aqui:hover {
+    background-color: #2178a7;
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* Instrucciones e Ilustración */
+.lista-pasos p {
+    margin-bottom: 15px;
+}
+
+.ilustracion-proceso {
+    width: 100%;
+    margin: 40px 0;
+    text-align: center;
+}
+
+.ilustracion-proceso img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Rejilla de productos base */
+.productos-base h2 {
+    font-size: 1.8rem;
+    margin: 50px 0 30px;
+}
+
+.grid-bases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card-base img {
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    height: 300px;
+    object-fit: contain; /* Para que la prenda se vea completa */
+    margin-bottom: 15px;
+}
+
+.card-base h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.card-base p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+    .grid-bases {
+        grid-template-columns: 1fr;
+    }
+}
