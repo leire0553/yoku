@@ -48,24 +48,30 @@ require_once BASE_PATH . 'php/componentes/header.php';
         <h3><?= $producto['nombre'] ?></h3>
         <p><?= $producto['descripcion'] ?></p>
         <p><strong><?= $producto['precio'] ?> €</strong></p>
+        <div class="acciones-producto">
+             <button class="boton-producto" type="submit"><img class="add-favorito" src="<?= BASE_URL ?>img/iconos/icono-add-carrito.png" alt="Icono añadir carrito"></button>
+       
+ <?php if (isset($_SESSION['usuario_id'])): ?>
+        <a href="<?= BASE_URL ?>listaDeseosAccion.php?accion=add&id=<?= $producto['id'] ?>">
+            <img src="<?= BASE_URL ?>img/iconos/icono-favoritos-blanco-i.png" alt="Icono añadir favorito">
+        </a>
+    <?php else: ?>
+        <a class="boton-producto" href="<?= BASE_URL ?>login.php"><img src="<?= BASE_URL ?>img/iconos/icono-favoritos-blanco-i.png" alt="Icono añadir favorito"></a>
+    <?php endif; ?>
+       </div>
+    
+       <form action="carritoAccion.php" method="POST">
+        <input type="hidden" name="accion" value="add">
+        <input type="hidden" name="id" value="<?= $producto['id'] ?>">
+         </form>
+       
 
-        <a href="<?= BASE_URL ?>public/producto.php?id=<?= $producto['id'] ?>">
+    <a class="boton-producto-texto" href="<?= BASE_URL ?>public/producto.php?id=<?= $producto['id'] ?>">
             Ver producto
         </a>
-       <form action="carritoAccion.php" method="POST">
-    <input type="hidden" name="accion" value="add">
-    <input type="hidden" name="id" value="<?= $producto['id'] ?>">
-    <button type="submit">Añadir al carrito</button>
-    </form>
-    <?php if (isset($_SESSION['usuario_id'])): ?>
-    <a href="<?= BASE_URL ?>listaDeseosAccion.php?accion=add&id=<?= $producto['id'] ?>">
-        ❤️ Añadir a favoritos
-    </a>
-<?php else: ?>
-    <a href="<?= BASE_URL ?>login.php">❤️ Inicia sesión para guardar</a>
-<?php endif; ?>
 
-    </div>
+    
+</div>
 
 <?php endforeach; ?>
 

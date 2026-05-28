@@ -1,166 +1,210 @@
 /*Documento css para los estilos generales de toda la aplicación web */
 
 /*Aplica a toda la página */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
 
 }
+
 /* Body de la página web */
-body{
+body {
 
     font-size: 16px;
-    font-family: system-ui, 'Playfair Display',Inter, "Montserrat", sans-serif;
+    font-family: system-ui, 'Playfair Display', Inter, "Montserrat", sans-serif;
     display: grid;
     background-color: azure;
-    grid-template-areas: 
-    "header header"
-    "hero hero"
-    "main main"
-    "footer footer";
-     grid-template-columns: 1fr;
+    grid-template-areas:
+        "header header"
+        "hero hero"
+        "main main"
+        "footer footer";
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto minmax(70vh, auto) auto;
 }
 
 /* Cabecera de la página web (aquí entra el menú superior)*/
-header{
-    background-color: #ffffff ;
+header {
+    background-color: #ffffff;
     grid-area: header;
     height: 15vh;
     box-shadow: 5px 2px 5px 0px #7F7F7F;
-      z-index: 10; /* Valor alto para estar encima */
+    z-index: 10;
+    /* Valor alto para estar encima */
 }
 
 /* Hero: imagen de banner principal*/
-.banner{
+.banner {
     grid-area: hero;
     width: 100%;
-    height:min-content;
-    z-index: 1; /* Valor bajo */
+    height: min-content;
+    z-index: 1;
+    /* Valor bajo */
     box-shadow: inset 0px -20px 20px -10px rgba(0, 0, 0, 0.5);
     position: relative;
-}       
-.banner img{
-    display: block; /*cambiar el display de la imagen por defecto para evitar los espacios por defecto*/
+}
+
+.banner img {
+    display: block;
+    /*cambiar el display de la imagen por defecto para evitar los espacios por defecto*/
     height: auto;
     width: 100%;
 
 }
+
 .explorar {
-    position: absolute; /* Lo saca del flujo normal para ponerlo encima */
-    
+    position: absolute;
+    /* Lo saca del flujo normal para ponerlo encima */
+
     /* Ubicación: arriba a la derecha */
-    top: 80%;           /* Lo baja al centro vertical (puedes usar px también) */
+    top: 60%;
+    /* Lo baja al centro vertical (puedes usar px también) */
     left: 65%;
-    /* Lo separa un poco del borde derecho */
-    transform: translateY(-50%); /* Centrado vertical perfecto */
-    
+    /* Centrado vertical perfecto */
+
     /* Estética del botón (puedes ajustarla a tu gusto) */
     background-color: #F12A21;
     color: white;
-    padding: 1rem 2rem;
+    padding: 1.5rem 3rem;
     border: none;
     border-radius: 0.3rem;
     font-weight: bold;
     cursor: pointer;
-    z-index: 2;         /* Un valor mayor que el banner para asegurar visibilidad */
+    z-index: 2;
+    /* Un valor mayor que el banner para asegurar visibilidad */
 }
+.explorar a{
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+}
+
 .explorar:hover {
-    background-color: #2b93cc; /* Tu azul corporativo al pasar el ratón */
+    background-color: #2b93cc;
+    /* Tu azul corporativo al pasar el ratón */
     transition: 0.3s;
+    
+    transform: scale(0.95);
 }
+
 /* Main, contenido principal de la página web*/
-main{
+main {
     background-color: rgb(255, 255, 255);
     grid-area: main;
     min-height: 70vh;
     padding: 1rem;
 }
+
 /*Pie de página (incluye el menú inferior) */
-footer{
+footer {
     grid-area: footer;
     min-height: 15vh;
 }
+
 /*Menú superior del header */
 
-.logo-superior{
-     height: 100%;
+.logo-superior {
+    height: 100%;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
-.logo-superior img{
 
-    max-height:80%;
+.logo-superior img {
+
+    max-height: 80%;
     min-width: auto;
 }
-.menu-superior{
-    display: flex;    
-    justify-content: space-between;  /*space-evenly*/
+
+.menu-superior {
+    display: flex;
+    justify-content: space-between;
+    /*space-evenly*/
     padding: 0 2rem;
     align-items: center;
     height: 100%;
 }
 
-.menu-superior ul{
+.menu-superior ul {
     list-style: none;
     display: flex;
 }
-.menu-superior li a{
+
+.menu-superior li a {
     text-decoration: none;
     color: black;
-    padding: 6.25vh 2vw;
-}.menu-superior li{
-    padding: 6.25vh 0;
+    padding: 6.05vh 2vw;
 }
-.menu-superior li:hover{
-    background-color: #D1D1D1;  
+
+.menu-superior li {
+    padding: 6.05vh 0;
+}
+
+.menu-superior li:hover {
+    background-color: #D1D1D1;
     cursor: pointer;
     transition-duration: 0.1s;
 }
 
-.menu-superior button{
+.menu-superior button {
     background-color: black;
+    padding: 0;
+    width: 4vw;
+    height: 7vh;
     border-radius: 0.3rem;
-    
-    color: white;
-    font-weight: bold;
-    display: inline-block;
-    width: 7vw;
-    height: 8vh;
-}.menu-superior button:hover{
+    overflow: hidden;
+}
+
+.menu-superior button:hover {
     animation: linear;
     transform: scale(0.95);
     transition-duration: 0.1s;
 }
-.iconos{
-    width: 1vw;
+
+.menu-superior button a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.iconos {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+
 }
 
 /* Apartado de imagenes de las secciones que hay en la web*/
 
-.secciones{
+.secciones {
     display: flex;
     justify-content: center;
-    gap:1.5rem;
+    gap: 1.5rem;
 }
 
-.secciones > article{
-     width:20vw;
+.secciones>article {
+    width: 20vw;
     height: 58vh;
     overflow: hidden;
     margin: 0;
     border-radius: 0.3rem;
-    
+
 }
-.secciones> article:hover{
+
+.secciones>article:hover {
     transform: scale(1.05);
 }
 
-.secciones img{
+.secciones img {
 
-    width: 100%;             /* La imagen ahora ocupa TODO el article */
-    height: 100%;            /* La imagen llena el alto */
-    object-fit: cover;       /*  Ajusta la foto sin deformarla */
+    width: 100%;
+    /* La imagen ahora ocupa TODO el article */
+    height: 100%;
+    /* La imagen llena el alto */
+    object-fit: cover;
+    /*  Ajusta la foto sin deformarla */
     display: block;
 
 }
@@ -170,22 +214,25 @@ footer{
 .productos {
     display: grid;
     /* Esto crea columnas automáticas de mínimo 250px */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 2rem; /* Espacio entre productos */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    /* Espacio entre productos */
     margin-top: 2rem;
 }
 
 /* Tarjeta individual de cada producto */
 .producto {
     background-color: white;
-    padding: 1rem;
+    padding: 1rem ;
     border: 1px solid #ddd;
     text-align: center;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px;
+    /* Bordes redondeados */
 }
 
 .producto img {
-    max-width: 100%; /* Para que la imagen no se salga de la tarjeta */
+    max-width: 100%;
+    /* Para que la imagen no se salga de la tarjeta */
     height: auto;
 }
 
@@ -255,7 +302,7 @@ footer{
     width: 18px;
     margin-right: 10px;
     opacity: 0.7;
-    
+
 }
 
 .footer-socials a img:hover {
@@ -269,4 +316,3 @@ footer{
         gap: 30px;
     }
 }
-

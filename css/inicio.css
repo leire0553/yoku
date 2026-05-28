@@ -1,0 +1,55 @@
+.producto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-producto-texto{
+    background-color: rgb(72, 186, 220);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.4rem;
+
+    margin-top: 0.6rem;
+}
+
+.acciones-producto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.acciones-producto form{
+    margin: 0;
+}
+
+.boton-producto{
+    background-color: rgb(72, 186, 220);
+    border: none;
+    border-radius: 0.4rem;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0.6rem;
+    cursor: pointer;
+}
+.boton-producto img{
+     width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.boton-producto:hover, .boton-producto-texto:hover {
+    animation: linear;
+    transform: scale(0.95);
+    transition-duration: 0.1s;
+}

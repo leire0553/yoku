@@ -1,3 +1,8 @@
+<?php
+ if (!defined('BASE_URL')) {
+    define('BASE_URL', '/yoku/');
+}
+        ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -5,18 +10,17 @@
     <meta charset="UTF-8">
     <title>
         <?php echo isset($titulo_pagina) ? $titulo_pagina : "YOKU - Tienda online";
-        if (!defined('BASE_URL')) {
-    define('BASE_URL', '/yoku/');
-}
+      
         ?>
     </title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>css/estilos.css?v=<?= time() ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/estilos.css">
+    
 
     <?php
     // Si la variable $estilo_especifico tiene algo, lo cargamos
     if (isset($estilo_especifico)) {
-        echo '<link rel="stylesheet" href="' . BASE_URL . 'css/' . $estilo_especifico . '">';
+        echo '<link rel="stylesheet" href="' . BASE_URL . 'css/' . $estilo_especifico . '?v=<?= time() ?>">';
     }
 
     ?>
@@ -25,8 +29,8 @@
 <body>
 <header>
      <!-- Menú Superior (Navegación) -->
-        <nav class="menu-superior">
-            <div class="logo-superior">
+    <nav class="menu-superior">
+        <div class="logo-superior">
                 <img src="<?= BASE_URL ?>img/logos/yoku-negro-sf-cortado.png" alt="Logo de yoku">
                 <img src="<?= BASE_URL ?>img/logos/yoku-negro-sf-letras.png" alt="Logo de yoku">
                 
@@ -39,9 +43,9 @@
 
         </ul>
         <div class="botones-menu">
-            <li><a href="<?= BASE_URL ?>public/listaDeseos.php">❤️ Lista de deseos</a></li>
-        <button><a href="<?= BASE_URL ?>public/carrito.php">Carrito</a></button>
-        <button><img class="iconos" src="<?= BASE_URL ?>img/iconos/icono-perfil-blanco.png"><a href="<?= BASE_URL ?>public/login.php">Perfil</a></button>
+            <button><a class="iconos" href="<?= BASE_URL ?>public/listaDeseos.php"><img class="iconos" src="<?= BASE_URL ?>img/iconos/icono-favoritos-blanco.jpg" alt="Icono favoritos"></a></button>
+            <button><a class="iconos" href="<?= BASE_URL ?>public/carrito.php"><img class="iconos" src="<?= BASE_URL ?>img/iconos/icono-carrito-blanco.png" alt="Icono carrito"></a></button>
+            <button><a class="iconos" href="<?= BASE_URL ?>public/login.php"><img class="iconos" src="<?= BASE_URL ?>img/iconos/icono-blanco-bld.png"></a></button>
 
         </div>
         

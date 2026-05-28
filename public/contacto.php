@@ -4,43 +4,12 @@ define('BASE_URL', '/yoku/');
 require BASE_PATH . 'php/funciones/productos.php';
 session_start(); // Siempre lo primero, antes de cualquier HTML
 $productos = obtenerProductosActivos();
+
+$estilo_especifico= "contacto.css";
+$titulo_pagina = "Yoku - Contacto";
+require_once BASE_PATH . 'php/componentes/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>YOKU - Tienda online</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/estilos.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>css/contacto.css">
-
-
-</head>
-<body>
-<header>
-     <!-- Menú Superior (Navegación) -->
-        <nav class="menu-superior">
-            <div class="logo-superior">
-                <img src="<?= BASE_URL ?>img/logos/yoku-negro-sf-cortado.png" alt="Logo de yoku">
-                <img src="<?= BASE_URL ?>img/logos/yoku-negro-sf-letras.png" alt="Logo de yoku">
-                
-            </div>
-        <ul>
-            <li><a href="<?= BASE_URL ?>public/index.php">Inicio</a></li>
-            <li><a href="<?= BASE_URL ?>public/productos.php">Productos</a></li>
-            <li><a href="<?= BASE_URL ?>public/personalizaciones.php">Personalizaciones</a></li>
-            <li><a href="<?= BASE_URL ?>public/contacto.php">Contacto</a></li>
-
-        </ul>
-        <div class="botones-menu">
-        <button><a href="<?= BASE_URL ?>public/carrito.php">Carrito</a></button>
-        <button><img class="iconos" src="<?= BASE_URL ?>img/iconos/icono-perfil-blanco.png"><a href="<?= BASE_URL ?>public/login.php">Perfil</a></button>
-
-        </div>
-        
-        </nav>
-</header>
-<!-- cambiar esto-->
 <main class="container">
         <section class="about-section">
             <div class="about-content">

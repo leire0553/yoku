@@ -1,11 +1,12 @@
 <?php
+
+session_start(); // Siempre lo primero, antes de cualquier HTML
 define('BASE_PATH', __DIR__ . '/../');
 define('BASE_URL', '/yoku/');
 require BASE_PATH . 'php/funciones/productos.php';
 $titulo_pagina = "Personalizaciones - Yoku";
 $estilo_especifico = "personalizaciones.css";
 require_once BASE_PATH . 'php/componentes/header.php';
-session_start(); // Siempre lo primero, antes de cualquier HTML
 $productos = obtenerProductosActivos();
 
 ?>
@@ -20,7 +21,7 @@ $productos = obtenerProductosActivos();
         </p>
 
         <div class="banner-interactivo">
-            <img src="<?= BASE_URL ?>img/chaqueta-personalizada.jpg" alt="Chaqueta personalizada">
+            <img src="<?= BASE_URL ?>img/chaqueta-personalizada.avif" alt="Chaqueta personalizada">
             <a href="<?= BASE_URL ?>public/editor.php" class="btn-personaliza-aqui">Personaliza aquí</a>
         </div>
     </section>
