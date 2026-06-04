@@ -88,37 +88,16 @@
 }
 
 .btn-eliminar{
-    display:inline-block;
-
     background:#F12A21;
     color:white;
     text-decoration:none;
-    font-weight:bold;
 
-    padding:12px 25px;
+    padding:10px 20px;
     border-radius:5px;
-
-    transition:0.15s ease;
-    border-style: none;
 }
 
 .btn-eliminar:hover{
     transform:scale(0.95);
-}
-
-.control-cantidad button {
-    background: #2b93cc;
-    color: white;
-    border: none;
-    width: 35px;
-    height: 35px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.control-cantidad button:hover {
-    transform: scale(0.95);
 }
 
 /* Resumen */
