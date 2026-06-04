@@ -236,7 +236,9 @@ footer {
 .producto img {
     max-width: 100%;
     /* Para que la imagen no se salga de la tarjeta */
-    height: auto;
+    object-fit: contain;
+    width: 15 rem;
+    height: 15rem;
 }
 
 .boton-producto-texto{
