@@ -37,31 +37,17 @@ require_once BASE_PATH . 'php/componentes/header.php';
 
         foreach ($carrito as $id => $item):
 
-            if (!empty($item['es_diseno'])) {
+            $stmt = $conexion->prepare("
+                SELECT nombre, precio
+                FROM productos
+                WHERE id = ?
+            ");
 
-                $producto = [
-                    'nombre' => 'Camiseta personalizada',
-                    'precio' => 19.99
-                ];
-
-            } else {
-
-                $stmt = $conexion->prepare("
-                    SELECT nombre, precio
-                    FROM productos
-                    WHERE id = ?
-                ");
-
-                $stmt->execute([$id]);
-
-                $producto = $stmt->fetch(PDO::FETCH_ASSOC);
-            }
+            $stmt->execute([$id]);
+            $producto = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $cantidad = $item['cantidad'];
-
-            $subtotal =
-                $producto['precio'] *
-                $cantidad;
+            $subtotal = $producto['precio'] * $cantidad;
 
             $total += $subtotal;
         ?>
@@ -76,9 +62,23 @@ require_once BASE_PATH . 'php/componentes/header.php';
                         <?= $producto['precio'] ?> €
                     </p>
 
-                    <p><strong>Cantidad:</strong>
-                        <?= $cantidad ?>
-                    </p>
+                    <div class="control-cantidad">
+
+    <form action="<?= BASE_URL ?>php/procesos/carritoAccion.php" method="POST">
+        <input type="hidden" name="accion" value="restar">
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <button type="submit">−</button>
+    </form>
+
+    <span><?= $cantidad ?></span>
+
+    <form action="<?= BASE_URL ?>php/procesos/carritoAccion.php" method="POST">
+        <input type="hidden" name="accion" value="sumar">
+        <input type="hidden" name="id" value="<?= $id ?>">
+        <button type="submit">+</button>
+    </form>
+
+</div>
 
                     <?php if (!empty($item['texto'])): ?>
                         <p>
@@ -91,29 +91,22 @@ require_once BASE_PATH . 'php/componentes/header.php';
 
                 <?php if (!empty($item['imagen'])): ?>
                     <div class="preview-diseno">
-                        <img src="<?= BASE_URL ?><?= $item['imagen'] ?>">
+                        <img src="<?= BASE_URL ?>uploads/<?= $item['imagen'] ?>">
                     </div>
                 <?php endif; ?>
 
-                <div class="acciones">
-                    <form
-                        action="<?= BASE_URL ?>public/procesos/eliminarDelCarrito.php"
-                        method="POST"
-                    >
-                        <input
-                            type="hidden"
-                            name="id"
-                            value="<?= htmlspecialchars($id) ?>"
-                        >
+                <div class="acciones-carrito">
 
-                        <button
-                            type="submit"
-                            class="btn-eliminar"
-                            onclick="return confirm('¿Eliminar este artículo del carrito?')"
-                        >
-                            Eliminar
-                        </button>
+                    <p class="subtotal">
+                        <?= $subtotal ?> €
+                    </p>
+
+                    <form action="<?= BASE_URL ?>php/procesos/carritoAccion.php" method="POST">
+                        <input type="hidden" name="accion" value="remove">
+                        <input type="hidden" name="id" value="<?= $id ?>">
+                        <button type="submit" class="btn-eliminar">Eliminar</button>
                     </form>
+
                 </div>
 
             </article>
@@ -126,17 +119,10 @@ require_once BASE_PATH . 'php/componentes/header.php';
 
             <h2>Total: <?= $total ?> €</h2>
 
-            <form
-                action="<?= BASE_URL ?>public/procesos/checkoutProcesar.php"
-                method="POST"
-            >
-                <button
-                    type="submit"
-                    class="btn-finalizar"
-                >
-                    Finalizar pedido
-                </button>
-            </form>
+            <a class="btn-finalizar"
+               href="<?= BASE_URL ?>public/checkout.php">
+                Finalizar pedido
+            </a>
 
         </div>
 
