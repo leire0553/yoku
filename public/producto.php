@@ -34,7 +34,7 @@ require BASE_PATH . 'php/componentes/header.php';
                 </section>
                 <section class="product-info">
                     <h1 class="product-title"><?= $producto['nombre'] ?></h1>
-                    <p class="product-stock">Stock disponible: 10</p>
+                    <p class="product-stock">Stock disponible:<?= $producto['stock'] ?></p>
                     <p class="product-price"><?= number_format($producto['precio'], 2) ?> €</p>
                     <div class="acciones-producto-detalle">
                     <form
