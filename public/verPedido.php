@@ -75,7 +75,7 @@ require_once BASE_PATH . 'php/componentes/header.php';
             <div class="producto-pedido">
 
                 <img
-                    src="<?= BASE_URL . $producto['imagen'] ?>"
+                    src="<?= BASE_URL . "img/productos/" $producto['imagen'] ?>"
                     width="120"
                 >
 
