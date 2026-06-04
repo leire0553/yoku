@@ -74,7 +74,7 @@ require_once BASE_PATH . 'php/componentes/header.php';
         <img src="<?= BASE_URL ?>img/productos/<?= $producto['imagen'] ?>" width="200">
 
         <h3><?= $producto['nombre'] ?></h3>
-        <p><?= $producto['descripcion'] ?></p>
+        <p style="height:3rem"><?= $producto['descripcion'] ?></p>
         <p><strong><?= $producto['precio'] ?> €</strong></p>
         <div class="acciones-producto">
              <form action="<?= BASE_URL ?>php/procesos/carritoAccion.php" method="POST">
