@@ -63,6 +63,9 @@ require_once BASE_PATH . 'php/componentes/header.php';
                 </ul>
             </nav>
         </div>
+         <a class="btn-logout" href="<?= BASE_URL ?>public/logout.php">
+    Cerrar sesión
+</a>
     </section>
     <section class="seccion-lista">
 
