@@ -159,6 +159,25 @@
     background-color: #2178a7;
 }
 
+.btn-logout{
+    display: inline-block;
+    margin-top: 10px;
+
+    background: #F12A21;
+    color: white;
+    text-decoration: none;
+
+    padding: 10px 18px;
+    border-radius: 6px;
+
+    font-weight: bold;
+    transition: 0.15s ease;
+}
+
+.btn-logout:hover{
+    transform: scale(0.95);
+}
+
 /* Responsivo para móviles */
 @media (max-width: 768px) {
     .perfil-header {
